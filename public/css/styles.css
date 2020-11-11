@@ -1,0 +1,67 @@
+/*
+style.css
+
+ @author : Jonathan Ingram
+ Version : 11/7/2020
+ Project : Lyric Generator App
+*/
+
+* {
+	background-color: black;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+}
+#content {
+	color: white;
+	padding-top: 5%;
+	height: 100%;
+	width: 100%;
+}
+
+#content-header {
+
+	height: 80%;
+	padding-bottom: 10%;
+	color: white;
+	font-family: "Bradley Hand", cursive;
+	font-size: 400%;
+	text-shadow: 2px 2px 0 #b57EDC,
+					4px 4px 0 #a832a0,
+					-2px -2px 0 #00FFFF,
+					-4px -4px 0 #32a8a8;
+}
+
+
+button { 
+	height: 10%;
+	width: 20%;
+	color: white;
+}
+
+#speech-button {
+	padding-top: 5%;
+}
+
+#generate-button button {
+	color: white;
+	text-shadow: -1px 1px 2px #a832a0,
+				  1px 1px 2px #00FFFF,
+				  -1px -1px 0 #32a8a3;
+}
+
+#speech-button button {
+	color: white;
+	text-shadow: -1px 1px 2px #a832a0,
+				  1px 1px 2px #00FFFF,
+				  -1px -1px 0 #32a8a3;
+}
+
+#lyrics {
+	padding-top: 10%;
+}
+
