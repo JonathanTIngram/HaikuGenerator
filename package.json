@@ -5,6 +5,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "nodemon": "^2.0.6",
+    "rhymes": "^2.0.0",
     "socket.io": "^3.0.1"
   },
   "devDependencies": {},

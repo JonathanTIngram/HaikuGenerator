@@ -21,6 +21,6 @@ function changeText() {
     //changing text
     document.getElementById("lyrics").innerHTML = "These be lyrics bro";
     //show speech button
-    
+    document.getElementById('speech-button').style.display = "block";
 }
 
