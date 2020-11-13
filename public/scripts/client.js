@@ -6,6 +6,8 @@
     Project : Lyric Generator
 */
 
+const socket = io();
+
 //Give a message when the user leaves the tab
 window.onblur = () => {
     document.title = "Why did you leave me?";
@@ -24,3 +26,8 @@ function changeText() {
     document.getElementById('speech-button').style.display = "block";
 }
 
+
+
+socket.on('connect', () => {
+    console.log('connect');
+})
