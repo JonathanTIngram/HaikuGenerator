@@ -1,0 +1,33 @@
+/*
+style.css
+
+ @author : Jonathan Ingram
+ Version : 11/14/2020
+ Project : Haiku Generator App
+*/
+
+* {
+	background-color: black;
+}
+
+body {
+    color: white;
+    text-align: center;
+}
+
+#back-to-main {
+	text-align: left;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+
+#back-to-main a:hover {
+	font-size: 150%;
+	text-shadow: 1px 1px 0 #b57EDC,
+					2px 2px 0 #a832a0,
+					-1px -1px 0 #00FFFF,
+					-2px -2px 0 #32a8a8;
+}
+

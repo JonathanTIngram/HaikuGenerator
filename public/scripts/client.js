@@ -3,31 +3,23 @@
 
     @author : Jonathan Ingram
     Version : 11/7/2020
-    Project : Lyric Generator
+    Project : Haiku Generator
 */
-
-const socket = io();
 
 //Give a message when the user leaves the tab
 window.onblur = () => {
-    document.title = "Why did you leave me?";
+    document.title = "I aint ever seen two pretty best friends";
 }
 //Go back to normal when they're back
 window.onfocus = () => {
-    document.title = "Sentance Generator";
+    document.title = "Haiku Generator";
 }
 
 //change the text when the button is pushed
 //in addition speach button will also appear when this is pressed
 function changeText() { 
     //changing text
-    document.getElementById("lyrics").innerHTML = "These be lyrics bro";
+    document.getElementById("lyrics").innerHTML = "Haiku Smaiku give me your Waifu";
     //show speech button
     document.getElementById('speech-button').style.display = "block";
 }
-
-
-
-socket.on('connect', () => {
-    console.log('connect');
-})

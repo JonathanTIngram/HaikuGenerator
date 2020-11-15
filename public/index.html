@@ -3,7 +3,7 @@
 
 	@author : Jonathan Ingram
 	Version : 11/7/2020
-	Project : Lyric Generator
+	Project : Haiku Generator
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,14 +11,16 @@
 	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>I aint ever seen two pretty best friends</title>
-	<link rel="stylesheet" href="css/styles.css">
+	<title>Haiku Generator</title>
+	<link rel="stylesheet" href="css/main_styles.css">
+	
 	
 </head>
 <body>
-
 	<div id="content">
+
 		<div id='content-header'>Haiku Generator</div>
+		<div id="sub-header">Just push the button... that's it</div>
 		<div id='generate-button'>
 			<!--Calls the changeText function from client.js when pressed-->
 			<button onclick="changeText()">Generate</button>
@@ -29,6 +31,10 @@
 
 		<div id='lyrics'>Haiku will go here</div>
 
+		<div align="right" id='about'>
+			<a href="about.html">About</a>
+		</div>
+
 		<!--client.js is placed here because 
 			elements need to be created before
 			interacting with them
@@ -37,4 +43,5 @@
 
 	</div>
 </body>
+
 </html>

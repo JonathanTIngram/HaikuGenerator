@@ -1,5 +1,5 @@
 /*
- app.js
+ server.js
 
 
  @author : Jonathan Ingram
@@ -25,7 +25,7 @@ function getRandomInt(max) {
 	return Math.floor(Math.random() * max);
 }
 //set rhyme json data to myRhyme
-let myRhyme = rhymes('penis')[getRandomInt(5)];
+let myRhyme = rhymes('cat')[getRandomInt(5)];
 
 
 //new user connected to server
@@ -36,5 +36,5 @@ io.on('connection', (socket) => {
 //listens to given port 
 app.listen(PORT, () => {
 	console.log('Server listening on port: ${PORT}');
-	socket.emit('rhyme', myRyme.word);
+	console.log(myRhyme.word);
 });
