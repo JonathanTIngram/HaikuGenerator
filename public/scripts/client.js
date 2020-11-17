@@ -19,7 +19,7 @@ window.onfocus = () => {
 //in addition speach button will also appear when this is pressed
 function changeText() { 
     //changing text
-    document.getElementById("lyrics").innerHTML = "Haiku Smaiku give me your Waifu";
+    document.getElementById("lyrics").innerHTML = "Haiku Implimented";
     //show speech button
     document.getElementById('speech-button').style.display = "block";
 }
