@@ -7,6 +7,7 @@
     "nodemon": "^2.0.6",
     "rhymes": "^2.0.0",
     "socket.io": "^3.0.1",
+    "syllable": "^4.1.0",
     "wordpos": "^2.0.0"
   },
   "devDependencies": {},
