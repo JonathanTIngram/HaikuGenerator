@@ -10,38 +10,41 @@
 //library calls
 const express = require('express');
 const app = express();
-const rhymes = require('rhymes'); //don't need this
 var syllable = require('syllable');
 const http = require('http').createServer(app)
-const io = require('socket.io')(http);
+var socket = require('socket.io');
 const fs = require('fs');
-const { Socket } = require('socket.io');
 const { get } = require('http');
 const PORT = 3000;
+
+
+//listens to given port 
+var server = app.listen(PORT, () => {
+	console.log('Server listening on port:', PORT);
+});
 
 //tells expres to locate files in public directory 
 app.use(express.static('public'));
 
+//creates socket using given server
+var io = socket(server);
 
 //set rhyme json data to myRhyme
 //let myRhyme = rhymes('cat')[getRandomInt(5)];
 
-
-//new user connected to server
 io.on('connection', (socket) => {
-	console.log("connect");
-});
-
-//listens to given port 
-app.listen(PORT, () => {
-	console.log('Server listening on port: ${PORT}');
+	socket.send("Hello from sever side");
 	let haiku = new Haiku();
-	haiku.get_5("", 0);
-	haiku.get_7("", 0);
-	haiku.get_5("", 0);
+	let haikuString = "";
+	haikuString = haikuString + " " + haiku.get_5("", 0);
+	haikuString = haikuString + " " + haiku.get_7("", 0);
+	haikuString = haikuString + " " + haiku.get_5("", 0);
+
+	setTimeout( () => {
+		//Sending an object when emmiting an event
+		socket.emit('testerEvent', { description: 'A custom event named testerEvent!'});
+	 }, 3000);
 });
-
-
 class Haiku {
 
 	constructor () {
