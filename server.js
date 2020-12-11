@@ -40,10 +40,12 @@ io.on('connection', (socket) => {
 	haikuString = haikuString + " " + haiku.get_7("", 0);
 	haikuString = haikuString + " " + haiku.get_5("", 0);
 
-	setTimeout( () => {
+	console.log(haikuString);
+
+//	setTimeout( () => {
 		//Sending an object when emmiting an event
-		socket.emit('testerEvent', { description: 'A custom event named testerEvent!'});
-	 }, 3000);
+	//	socket.emit('testerEvent', { description: 'A custom event named testerEvent!'});
+	// }, 3000);
 });
 class Haiku {
 
