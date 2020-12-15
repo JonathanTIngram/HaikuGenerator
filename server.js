@@ -13,40 +13,29 @@ const app = express();
 var syllable = require('syllable');
 const http = require('http').createServer(app)
 var socket = require('socket.io');
+var io = require('socket.io')(http);
 const fs = require('fs');
-const { get } = require('http');
 const PORT = 3000;
 
-
-//listens to given port 
-var server = app.listen(PORT, () => {
-	console.log('Server listening on port:', PORT);
-});
 
 //tells expres to locate files in public directory 
 app.use(express.static('public'));
 
-//creates socket using given server
-var io = socket(server);
-
-//set rhyme json data to myRhyme
-//let myRhyme = rhymes('cat')[getRandomInt(5)];
-
-io.on('connection', (socket) => {
-	socket.send("Hello from sever side");
+//listens to given port 
+var server = app.listen(PORT, () => {
+	console.log('Server listening on port:', PORT);
 	let haiku = new Haiku();
 	let haikuString = "";
 	haikuString = haikuString + " " + haiku.get_5("", 0);
 	haikuString = haikuString + " " + haiku.get_7("", 0);
 	haikuString = haikuString + " " + haiku.get_5("", 0);
-
 	console.log(haikuString);
 
-//	setTimeout( () => {
-		//Sending an object when emmiting an event
-	//	socket.emit('testerEvent', { description: 'A custom event named testerEvent!'});
-	// }, 3000);
 });
+
+
+
+
 class Haiku {
 
 	constructor () {
