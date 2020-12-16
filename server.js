@@ -37,7 +37,7 @@ io.on('connection', (socket) => {
   
 	console.log("We have a new client: " + socket.id);	
 	let haiku = new Haiku.Haiku();
-    haikuString = haiku.get_line('', 5) + '\n' + haiku.get_line('', 7) + '\n' + haiku.get_line('', 5);
+    haikuString = haiku.get_5('', 0) + '\n' + haiku.get_7('', 0) + '\n' + haiku.get_5('', 0);
 	console.log(haikuString);
 
     
