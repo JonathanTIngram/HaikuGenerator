@@ -65,27 +65,30 @@ class Haiku {
 		let syll = syllable(word);
 		//console.log(word, syll);
 
-		let finalLine = "";
 
+		if(syllCount != 5){
+			lineString = lineString + " " + word;
+			syllCount = syllCount + syll;
 
-		lineString = lineString + " " + word;
-		console.log(lineString);
-		syllCount = syllCount + syll;
-
+			if (syllCount > 5){
+				lineString = "";
+			}
+		}
 
 		if(syllCount == 5){
 			//console.log("5 sylls");
-			//console.log(lineString, syllCount);
-			return (lineString, syllCount);
+			console.log(lineString, syllCount);
+			let finalLine = lineString;
+			return finalLine;
 		}
-		if (syllCount > 5){
+		else if (syllCount > 5){
 			lineString = " ";
 			syllCount = 0;
-			this.get_5(lineString, syllCount) //recursive call
+			return this.get_5(lineString, syllCount) //recursive call
 		}
 		else if (syllCount < 5 ){
 			//console.log("below 5 sylls");
-			this.get_5(lineString, syllCount); //recursive call
+			return this.get_5(lineString, syllCount); //recursive call
 			
 		}
 	}
@@ -94,29 +97,32 @@ class Haiku {
 		let word = this.get_word();
 		let syll = syllable(word);
 		//console.log(word, syll);
-		
 
 
 		if(syllCount != 7){
-
+			lineString = lineString + " " + word;
+			syllCount = syllCount + syll;
 
 			if (syllCount > 7){
-				lineString = " ";
-				syllCount = 0;
-				this.get_7(lineString, syllCount) //recursive call
-			}
-			else if (syllCount < 7 ){
-				//console.log("below 7 sylls");
-				lineString = lineString + " " + word;
-				syllCount = syllCount + syll;
-				this.get_7(lineString, syllCount); //recursive call
+				lineString = "";
 			}
 		}
 
-		else if(syllCount == 7){
+		if(syllCount == 7){
 			//console.log("5 sylls");
-
-			return lineString;
+			console.log(lineString, syllCount);
+			let finalLine = lineString;
+			return finalLine;
+		}
+		else if (syllCount > 7){
+			lineString = " ";
+			syllCount = 0;
+			return this.get_7(lineString, syllCount) //recursive call
+		}
+		else if (syllCount < 7){
+			//console.log("below 5 sylls");
+			return this.get_7(lineString, syllCount); //recursive call
+			
 		}
 	}
 
