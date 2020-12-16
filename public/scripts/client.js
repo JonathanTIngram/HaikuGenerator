@@ -6,7 +6,9 @@
     Project : Haiku Generator
 */
 
-//Give a message when the user leaves the tab
+var socket;
+
+socket = io.connect("http://localhost:3000");
 
 
 window.onblur = () => {
@@ -20,9 +22,14 @@ window.onfocus = () => {
 //change the text when the button is pushed
 //in addition speach button will also appear when this is pressed
 
-function changeText() {  
-    //changing text
-    document.getElementById("lyrics").innerHTML = "Haiku Implimented";
-    //show speech button
+let haik = document.getElementById('haiku-place');
+let genBtn = document.getElementById('generate-button');
+
+genBtn.addEventListener('click',  () =>{
+    socket.on('generate', (data) =>{
+        haik.innerHTML = data.hai;
+    })
+
     document.getElementById('speech-button').style.display = "block";
-}
+
+});
