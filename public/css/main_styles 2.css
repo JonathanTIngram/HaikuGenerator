@@ -1,0 +1,96 @@
+/*
+style.css
+
+ @author : Jonathan Ingram
+ Version : 11/7/2020
+ Project : Haiku Generator App
+*/
+
+* {
+	background-color: black;
+}
+
+
+#bottom-menu{
+	position: fixed;
+	bottom: 0;
+	padding-bottom: 5%;
+	padding-right: 5%;
+	right: 0;
+}
+
+#bottom-menu a{
+	padding-right: 5%;
+	text-decoration: none;
+	color: white;
+}
+#bottom-menu a:hover {
+	font-size: 150%;
+	text-shadow: 1px 1px 0 #b57EDC,
+					2px 2px 0 #a832a0,
+					-1px -1px 0 #00FFFF,
+					-2px -2px 0 #32a8a8;
+}
+
+
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+}
+
+
+#content {
+	color: white;
+	padding-top: 5%;
+	height: 100%;
+	width: 100%;
+}
+
+#content-header {
+
+	height: 80%;
+	color: white;
+	font-family: "Bradley Hand", cursive;
+	font-size: 400%;
+	text-shadow: 2px 2px 0 #b57EDC,
+					4px 4px 0 #a832a0,
+					-2px -2px 0 #00FFFF,
+					-4px -4px 0 #32a8a8;
+}
+
+#sub-header {
+	padding-bottom: 10%;
+}
+
+button { 
+	font-size: 150%;
+	height: 10%;
+	width: 25%;
+	color: white;
+}
+
+#speech-button {
+	display: none;
+	padding-top: 2.5%;
+}
+
+#generate-button button {
+	color: white;
+	text-shadow: -1px 1px 2px #a832a0,
+				  1px 1px 2px #00FFFF,
+				  -1px -1px 0 #32a8a3;
+}
+
+#speech-button button {
+	color: white;
+	text-shadow: -1px 1px 2px #a832a0,
+				  1px 1px 2px #00FFFF,
+				  -1px -1px 0 #32a8a3;
+}
+
+#haiku-place {
+	padding-top: 10%;
+}
+

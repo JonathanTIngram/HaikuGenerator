@@ -20,7 +20,7 @@
 	<div id="content">
 
 		<div id='content-header'>Haiku Generator</div>
-		<div id="sub-header">Just push the button... Haiku</div>
+		<div id="sub-header">Push the button... Haiku</div>
 		<div id='generate-button'>
 			<!--Calls the changeText function from client.js when pressed-->
 			<button>Generate</button>
@@ -29,11 +29,21 @@
 			<button>Speak</button>
 		</div>
 
-		<div id='haiku-place' type='text'>-</div>
-
-		<div align="right" id='about'>
-			<a href="about.html">About</a>
+		<div type='text'>
+			<div id='haiku-line1'>-</div>
+			<div id='haiku-line2'>-</div>
+			<div id='haiku-line3'>-</div>
 		</div>
+
+		<div align="right" id='bottom-menu'>
+			<div id='about'>
+				<a href="about.html">How to Use</a>
+			</div>
+			<div id='about'>
+				<a href="about.html">About</a>
+			</div>
+		</div>
+
 
 		<!--client.js is placed here because 
 			elements need to be created before

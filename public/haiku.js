@@ -1,3 +1,11 @@
+/* 
+haiku.js
+
+@author : Jonathan T Ingram
+Created : 12/05/2020
+Project : Haiku Generator
+*/
+
 let syllable = require('syllable');
 let fs = require('fs');
 class Haiku {
@@ -13,7 +21,7 @@ class Haiku {
 
 	get_word(){
 		try {
-			const data = fs.readFileSync('words.txt', "UTF-8");
+			const data = fs.readFileSync('words/verbs.txt', "UTF-8");
 
 			//split contents by line
 			const lines = data.split(/\r?\n/);
@@ -33,30 +41,39 @@ class Haiku {
 		}
 	}
 
-	get_line(lineString, syllGoal){
+
+	//method not in use but would be better to use one method to get a line 
+	//with just one method with the syllable goal as a parameter. Ex: getline(5) or getline(7)
+	get_line(lineString, syllGoal, syllCount){
 		let word = this.get_word();
 		let syll = syllable(word);
-		lineString = lineString + word;
-		let stringSyll = syllable(lineString);
+		//console.log(word, syll);
 
 
+		if(syllCount != syllGoal){
+			lineString = lineString + " " + word;
+			syllCount = syllCount + syll;
 
-		if(stringSyll < syllGoal){
-			let newWord = this.get_word();
-			lineString = lineString + " " + newWord;
-			stringSyll = syllable(lineString);
+			if (syllCount > syllGoal){
+				lineString = "";
+			}
 		}
-		if (stringSyll > syllGoal){
-			//delete the last word added
-			lineString = lineString.replace(word, '');
-			let newWord = this.get_word();
-			lineString = lineString + " " + newWord;
-			stringSyll = syllable(lineString);
-		}
-		
 
-		if(stringSyll == syllGoal){
-			return lineString;
+		if(syllCount == syllGoal){
+			//console.log("5 sylls");
+			console.log(lineString, syllCount);
+			let finalLine = lineString;
+			return finalLine;
+		}
+		else if (syllCount > syllGoal){
+			lineString = " ";
+			syllCount = 0;
+			return this.get_line(lineString, syllGoal, syllCount) //recursive call
+		}
+		else if (syllCount < syllGoal){
+			//console.log("below 5 sylls");
+			return this.get_line(lineString, syllGoal, syllCount); //recursive call
+			
 		}
 	}
 

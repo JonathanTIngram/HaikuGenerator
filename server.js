@@ -21,7 +21,7 @@ var server = app.listen(process.env.PORT || 3000, listen);
 function listen() {
   var host = server.address().address;
   var port = server.address().port;
-  console.log('Example app listening at http://' + host + ':' + port);
+  console.log('Haiku Generator listening at http://' + host + ':' + port);
 }
 
 app.use(express.static('public'));
@@ -36,13 +36,30 @@ var io = require('socket.io')(server);
 io.on('connection', (socket) => {
   
 	console.log("We have a new client: " + socket.id);	
-	let haiku = new Haiku.Haiku();
-    haikuString = haiku.get_5('', 0) + '\n' + haiku.get_7('', 0) + '\n' + haiku.get_5('', 0);
-	console.log(haikuString);
+  
+  let haiku = new Haiku.Haiku();
+  //get_line parameters: get_line(lineString, syllGoal, syllCount)
+  //haikuString = haiku.get_line('', 5, 0) + '\n' + haiku.get_line('', 7, 0) + '\n' + haiku.get_line('', 5, 0);
+  haikuLine1 = haiku.get_line('', 5, 0);
+  haikuLine2 = haiku.get_line('', 7, 0);
+  haikuLine3 = haiku.get_line('', 5, 0);
+  console.log(haikuLine1, '\n', haikuLine2, '\n', haikuLine3);
 
     
 	
-	socket.emit('generate', {hai: haikuString});
+  socket.emit('generate', {hai1: haikuLine1, hai2: haikuLine2, hai3: haikuLine3});
+   
+  socket.on('generate', () =>{
+    let haiku = new Haiku.Haiku();
+    //get_line parameters: get_line(lineString, syllGoal, syllCount)
+    haikuLine1 = haiku.get_line('', 5, 0);
+    haikuLine2 = haiku.get_line('', 7, 0);
+    haikuLine3 = haiku.get_line('', 5, 0);
+    console.log(haikuLine1, '\n', haikuLine2, '\n', haikuLine3);
+
+    //send to client
+    socket.emit('generate', {hai1: haikuLine1, hai2: haikuLine2, hai3: haikuLine3});
+  })
 
     socket.on('disconnect', () => {
       console.log("Client has disconnected");
