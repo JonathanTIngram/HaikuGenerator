@@ -1,5 +1,5 @@
 {
-  "name": "lyricgenerator",
+  "name": "haikugenerator",
   "version": "1.0.0",
   "main": "server.js",
   "dependencies": {
@@ -8,6 +8,7 @@
     "rhymes": "^2.0.0",
     "socket.io": "^3.0.1",
     "syllable": "^4.1.0",
+    "tensify": "0.0.4",
     "wordpos": "^2.0.0"
   },
   "devDependencies": {},

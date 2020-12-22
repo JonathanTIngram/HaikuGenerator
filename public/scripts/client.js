@@ -6,25 +6,15 @@
     Project : Haiku Generator
 */
 
-//JS styling
 window.onblur = () => {
-    document.title = "I aint ever seen two pretty best friends";
+    document.title = ":(";
 }
 //Go back to normal when they're back
 window.onfocus = () => {
     document.title = "Haiku Generator";
 }
 
-window.onload = () => {
-    //wait three seconds then fade in
-    window.setTimeout(fade_in(), 300);
-  }
-  
-  function fade_in() {
-    //opacity goes from 0 to 1
-    document.getElementById('content-header').style.opacity = '1';
-    
-  }
+
 //end of JS styling
 
 
@@ -38,10 +28,18 @@ let haik1 = document.getElementById('haiku-line1');
 let haik2 = document.getElementById('haiku-line2');
 let haik3 = document.getElementById('haiku-line3');
 let genBtn = document.getElementById('generate-button');
+let speakBtn = document.getElementById('speech-button')
 
 genBtn.addEventListener('click',  () =>{
     socket.emit('generate', haik1);
     socket.on('generate', (data) =>{
+        
+        //make sure all lines are visable
+        haik1.style.opacity = '1';
+        haik2.style.opacity = '1';
+        haik3.style.opacity = '1';
+
+        //create lines
         haik1.innerHTML = data.hai1;
         haik2.innerHTML = data.hai2;
         haik3.innerHTML = data.hai3;
@@ -50,3 +48,34 @@ genBtn.addEventListener('click',  () =>{
     document.getElementById('speech-button').style.display = "block";
 
 });
+
+speakBtn.addEventListener('click', () =>{
+
+    //speech
+    let utter = new SpeechSynthesisUtterance();
+    utter.lang = 'en-US';
+    utter.volume = 0.5;
+
+    //make them all transparent and fade in as they are spoken
+    haik1.style.opacity = '0';
+    haik2.style.opacity = '0';
+    haik3.style.opacity = '0';
+
+    window.setTimeout(() =>{
+        haik1.style.opacity = '1';
+        utter.text = haik1.textContent;
+        window.speechSynthesis.speak(utter)
+    }, 300);
+
+    window.setTimeout(() =>{
+        haik2.style.opacity = '1';
+        utter.text = haik2.textContent;
+        window.speechSynthesis.speak(utter)
+    }, 1500);
+
+    window.setTimeout(() =>{
+        haik3.style.opacity = '1';
+        utter.text = haik3.textContent;
+        window.speechSynthesis.speak(utter)
+    }, 3500);
+})

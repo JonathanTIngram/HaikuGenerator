@@ -8,7 +8,7 @@
 */
 
 var Haiku = require('./public/haiku')
-
+const https = require('https');
 var express = require('express');
 // Create the app
 var app = express();
@@ -40,9 +40,11 @@ io.on('connection', (socket) => {
   let haiku = new Haiku.Haiku();
   //get_line parameters: get_line(lineString, syllGoal, syllCount)
   //haikuString = haiku.get_line('', 5, 0) + '\n' + haiku.get_line('', 7, 0) + '\n' + haiku.get_line('', 5, 0);
-  haikuLine1 = haiku.get_line('', 5, 0);
-  haikuLine2 = haiku.get_line('', 7, 0);
-  haikuLine3 = haiku.get_line('', 5, 0);
+  
+  //only asking for 4 syllables since "The" and "the" count as a syllable
+  haikuLine1 = "The " + haiku.get_line1(4);
+  haikuLine2 = haiku.get_line2(7);
+  haikuLine3 = "the " + haiku.get_line1(4);
   console.log(haikuLine1, '\n', haikuLine2, '\n', haikuLine3);
 
     
@@ -51,10 +53,11 @@ io.on('connection', (socket) => {
    
   socket.on('generate', () =>{
     let haiku = new Haiku.Haiku();
-    //get_line parameters: get_line(lineString, syllGoal, syllCount)
-    haikuLine1 = haiku.get_line('', 5, 0);
-    haikuLine2 = haiku.get_line('', 7, 0);
-    haikuLine3 = haiku.get_line('', 5, 0);
+
+    //get_line1 is passed a four since "The" counts as a syllable
+    haikuLine1 = "The " + haiku.get_line1(4);
+    haikuLine2 = haiku.get_line2(7);
+    haikuLine3 = "the " + haiku.get_line1(4);
     console.log(haikuLine1, '\n', haikuLine2, '\n', haikuLine3);
 
     //send to client
