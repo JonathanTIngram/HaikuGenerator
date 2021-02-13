@@ -1,3 +1,4 @@
 # HaikuGenerator
 
-Project Currently in development. Expected to be near completion.
+Check this project out at haikugenerator.com
+
