@@ -1,4 +1,5 @@
 # HaikuGenerator
 
-Check this project out at haikugenerator.com
+Check this project out at <link>haikugenerator.com</link>
+
 
