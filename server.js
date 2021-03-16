@@ -38,9 +38,8 @@ io.on('connection', (socket) => {
 	console.log("We have a new client: " + socket.id);	
   
   let haiku = new Haiku.Haiku();
-  //get_line parameters: get_line(lineString, syllGoal, syllCount)
-  //haikuString = haiku.get_line('', 5, 0) + '\n' + haiku.get_line('', 7, 0) + '\n' + haiku.get_line('', 5, 0);
-  
+
+  //get_line1 and get_line2 take in a the parameter syllCount for the desired syllable outcome  
   //only asking for 4 syllables since "The" and "the" count as a syllable
   haikuLine1 = "The " + haiku.get_line1(4);
   haikuLine2 = haiku.get_line2(7);
